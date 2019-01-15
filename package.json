@@ -1,0 +1,28 @@
+{
+  "name": "differencify-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dif-prod.js",
+  "dependencies": {
+    "differencify": "^1.5.2"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "differencify-jest-reporter": "0.0.3",
+    "jest": "^23.6.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crazyyy/jelastic-differencify.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crazyyy/jelastic-differencify/issues"
+  },
+  "homepage": "https://github.com/crazyyy/jelastic-differencify#readme"
+}
