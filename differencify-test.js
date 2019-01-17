@@ -11,13 +11,6 @@ const sitemap = [
   "https://test-site.jelastic.com/software-defined-storage",
   "https://test-site.jelastic.com/enterprise-paas",
   "https://test-site.jelastic.com/contact-support",
-  "https://test-site.jelastic.com/whitepapers/saas-enablement-jahia-cms-multi-cloud-paas",
-  "https://test-site.jelastic.com/whitepapers/high-performing-php-cloud-hosting-for-digital-agencies",
-  "https://test-site.jelastic.com/load-balancing",
-  "https://test-site.jelastic.com/request-functionality",
-  "https://test-site.jelastic.com/software-defined-storage",
-  "https://test-site.jelastic.com/enterprise-paas",
-  "https://test-site.jelastic.com/contact-support",
   "https://test-site.jelastic.com/whitepapers/jelastic-multi-cloud-paas-overview",
   "https://test-site.jelastic.com/cloud-business-for-hosting-providers",
   "https://test-site.jelastic.com/about/partners",
@@ -115,10 +108,10 @@ const sitemap = [
 ]
 
 const viewports = [
-  { width: 1920, height: 1080 },
+  /*{ width: 1920, height: 1080 },
   { width: 1400, height: 900 },
   { width: 1366, height: 768 },
-  { width: 720, height: 1280 },
+  { width: 720, height: 1280 },*/
   { width: 414, height: 736 },
   { width: 360, height: 640 }
 ]
@@ -142,13 +135,16 @@ async function readFiles(sitemap, viewports) {
       await target.launch();
       const page = await target.newPage();
 
+      process.on('unhandledRejection', (reason, p) => {
+        console.error('Unhandled Rejection at: Promise', p, 'reason:', reason);
+        page.close();
+      });
+
       await page.on('error', error => {
         console.error('Chromium Tab CRASHED', error);
-        browser.close();
+        page.close();
       });
-      await page.goto(siteurl, {
-        timeout: 3000000
-      });
+      await page.goto(siteurl, { waitUntil: 'domcontentloaded' });
       await page.setViewport({ width: viewport.width, height: viewport.height });
 
       const setHeight = await page.evaluate((viewport) => {
@@ -168,6 +164,10 @@ async function readFiles(sitemap, viewports) {
 
       await target.toMatchSnapshot(image, (resultDetail) => {
         console.log(resultDetail);
+      });
+
+      const output = await page.evaluate(() => {
+          return;
       });
 
       await page.close();
