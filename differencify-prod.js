@@ -2,7 +2,7 @@ const Differencify = require('differencify');
 const differencify = new Differencify({ imageSnapshotPath: './prod_path' });
 
 const sitemap = [
-  /*"https://jelastic.com",
+  "https://jelastic.com",
   "https://jelastic.com/new-main-page-from-10-01-2019",
   "https://jelastic.com/whitepapers/saas-enablement-jahia-cms-multi-cloud-paas",
   "https://jelastic.com/whitepapers/high-performing-php-cloud-hosting-for-digital-agencies",
@@ -29,7 +29,7 @@ const sitemap = [
   "https://jelastic.com/contact",
   "https://jelastic.com/java-cloud-hosting",
   "https://jelastic.com/cloud-platform-for-hosting-providers",
-  "https://jelastic.com/about/company",*/
+  "https://jelastic.com/about/company",
   "https://jelastic.com/paas-cloud-hosting",
   "https://jelastic.com/whitepapers",
   "https://jelastic.com/about/events",
@@ -108,11 +108,11 @@ const sitemap = [
 ]
 
 const viewports = [
-  /*{ width: 1920, height: 1080 },
+ /* { width: 1920, height: 1080 },
   { width: 1400, height: 900 },
   { width: 1366, height: 768 },
   { width: 720, height: 1280 },
- { width: 414, height: 736 },*/
+  { width: 414, height: 736 },*/
   { width: 360, height: 640 }
 ]
 
